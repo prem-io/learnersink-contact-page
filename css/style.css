@@ -1,9 +1,9 @@
 :root {
 	--section-one: #ffd495;
 	--section-two: #fffbac;
-	--section-three: #B5D5C5;
+	--section-three: #b5d5c5;
 	--section-four: #cfe8a9;
-	--section-five: #ECF2FF;
+	--section-five: #ecf2ff;
 }
 
 *,
@@ -87,12 +87,23 @@ input[type='submit']:focus {
 	width: 100%;
 	grid-auto-columns: 1fr;
 	grid-column-gap: 0px;
-	grid-row-gap: 0px;
-	-ms-grid-columns: 1fr 1fr;
 	grid-template-columns: 1fr 1fr;
-	-ms-grid-rows: auto;
 	grid-template-rows: auto;
+	grid-row-gap: 0px;
 	border-bottom: 2px solid #000;
+}
+
+.grid-item-1,
+.grid-item-2 {
+	display: inline-block;
+}
+
+.grid-item-1 {
+	order: 1;
+}
+
+.grid-item-2 {
+	order: 2;
 }
 
 .column-padding {
@@ -221,55 +232,54 @@ input[type='submit'] {
 
 /* Add animation to the modal */
 .modal {
-  display: none; /* Hidden by default */
-  justify-content: center;
-  align-items: center;
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full width */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-  animation-name: fadeIn; /* Add animation */
-  animation-duration: 0.5s;
+	display: none; /* Hidden by default */
+	justify-content: center;
+	align-items: center;
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full width */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+	animation-name: fadeIn; /* Add animation */
+	animation-duration: 0.5s;
 }
 
 /* Modal content */
 .modal-content {
-  background-color: #fefefe;
-  margin: 0 auto; /* Center horizontally */
-  padding: 20px;
-  width: 24rem;
-  position: relative;
-  top: 50%; /* Start from top of screen */
-  transform: translateY(-50%); /* Shift up by 50% of its own height */
-  animation-name: slideIn; /* Add animation */
-  animation-duration: 0.5s;
+	background-color: #fefefe;
+	margin: 0 auto; /* Center horizontally */
+	padding: 20px;
+	width: 24rem;
+	position: relative;
+	top: 50%; /* Start from top of screen */
+	transform: translateY(-50%); /* Shift up by 50% of its own height */
+	animation-name: slideIn; /* Add animation */
+	animation-duration: 0.5s;
 }
 
 /* Modal animation */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 @keyframes slideIn {
-  from {
-    top: -50%;
-  }
-  to {
-    top: 50%;
-  }
+	from {
+		top: -50%;
+	}
+	to {
+		top: 50%;
+	}
 }
-
 
 /* Close Button */
 .close {
@@ -300,4 +310,26 @@ input,
 textarea {
 	padding: 1rem 0.75rem;
 	border: 1px solid #1a1a1a;
+}
+
+@media screen and (max-width: 768px) {
+	.grid-halves {
+		grid-template-columns: 1fr;
+	}
+	.grid-item-1 {
+		order: 2;
+	}
+	.grid-item-2 {
+		order: 1;
+	}
+	.column-padding.creator {
+		padding-right: 6.5vw;
+	}
+	.content-footer {
+		display: flex;
+		justify-content: center;
+	}
+	.name-tag {
+		bottom: 1rem;
+	}
 }
